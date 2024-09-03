@@ -17,7 +17,7 @@ jobs:
 
     # Build the Docker image
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag rsshub:$(date +%s)
+      run: docker build . --file Dockerfile --tag rsshub:latest
 
     # Log in to Docker Hub
     - name: Log in to Docker Hub
@@ -26,7 +26,7 @@ jobs:
     # Tag the image with 'latest' and commit SHA
     - name: Tag the Docker image
       run: |
-        IMAGE_ID=rsshub:$(date +%s)
+        IMAGE_ID=rsshub:latest
         docker tag $IMAGE_ID hzhyang/rsshub:latest
 
     # Push the image to Docker Hub
