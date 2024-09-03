@@ -28,10 +28,8 @@ jobs:
       run: |
         IMAGE_ID=rsshub:$(date +%s)
         docker tag $IMAGE_ID hzhyang/rsshub:latest
-        docker tag $IMAGE_ID hzhyang/rsshub:${{ github.sha }}
 
     # Push the image to Docker Hub
     - name: Push the Docker image to Docker Hub
       run: |
         docker push hzhyang/rsshub:latest
-        docker push hzhyang/rsshub:${{ github.sha }}
