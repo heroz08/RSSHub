@@ -3510,6 +3510,73 @@
     "url": "afdian.net",
     "lang": "zh-CN"
   },
+  "afr": {
+    "routes": {
+      "/latest": {
+        "path": "/latest",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/afr/latest",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.afr.com/latest",
+              "www.afr.com/"
+            ]
+          }
+        ],
+        "name": "Latest",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "www.afr.com/latest",
+        "location": "latest.ts"
+      },
+      "/navigation/:path{.+}": {
+        "path": "/navigation/:path{.+}",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/afr/navigation/markets",
+        "parameters": {
+          "path": "Navigation path, can be found in the URL of the page"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.afr.com/path*"
+            ]
+          }
+        ],
+        "name": "Navigation",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "www.afr.com",
+        "location": "navigation.ts"
+      }
+    },
+    "name": "The Australian Financial Review",
+    "url": "afr.com",
+    "lang": "en"
+  },
   "agefans": {
     "routes": {
       "/detail/:id": {
@@ -8724,10 +8791,11 @@
             ]
           }
         ],
-        "name": "UP 主专栏",
+        "name": "UP 主图文",
         "maintainers": [
           "lengthmin",
-          "Qixingchen"
+          "Qixingchen",
+          "hyoban"
         ],
         "location": "article.ts"
       },
@@ -9496,114 +9564,105 @@
         ],
         "location": "popular.ts"
       },
-      "/ranking/:rid?/:day?/:arc_type?/:embed?": {
-        "path": "/ranking/:rid?/:day?/:arc_type?/:embed?",
+      "/ranking/:rid_index?/:embed?/:redirect1?/:redirect2?": {
+        "path": "/ranking/:rid_index?/:embed?/:redirect1?/:redirect2?",
         "name": "排行榜",
         "maintainers": [
-          "DIYgod"
+          "DIYgod",
+          "hyoban"
         ],
         "categories": [
           "social-media",
           "popular"
         ],
         "view": 3,
-        "example": "/bilibili/ranking/0/3/1",
+        "example": "/bilibili/ranking/0",
         "parameters": {
-          "rid": {
-            "description": "排行榜分区 id",
+          "rid_index": {
+            "description": "排行榜分区 id 序号",
             "default": "0",
             "options": [
               {
-                "label": "全站",
-                "value": "0"
-              },
-              {
-                "label": "动画",
-                "value": "1"
-              },
-              {
-                "label": "国创相关",
-                "value": "168"
-              },
-              {
-                "label": "音乐",
-                "value": "3"
-              },
-              {
-                "label": "舞蹈",
-                "value": "129"
-              },
-              {
-                "label": "游戏",
-                "value": "4"
-              },
-              {
-                "label": "科技",
-                "value": "36"
-              },
-              {
-                "label": "数码",
-                "value": "188"
-              },
-              {
-                "label": "生活",
-                "value": "160"
-              },
-              {
-                "label": "鬼畜",
-                "value": "119"
-              },
-              {
-                "label": "时尚",
-                "value": "155"
-              },
-              {
-                "label": "娱乐",
-                "value": "5"
-              },
-              {
-                "label": "影视",
-                "value": "181"
-              }
-            ]
-          },
-          "day": {
-            "description": "时间跨度",
-            "default": "3",
-            "options": [
-              {
-                "value": "1",
-                "label": "1日"
+                "value": "0",
+                "label": "全站"
               },
               {
                 "value": "3",
-                "label": "3日"
+                "label": "国创相关"
+              },
+              {
+                "value": "5",
+                "label": "动画"
+              },
+              {
+                "value": "6",
+                "label": "音乐"
               },
               {
                 "value": "7",
-                "label": "7日"
+                "label": "舞蹈"
               },
               {
-                "value": "30",
-                "label": "30日"
+                "value": "8",
+                "label": "游戏"
+              },
+              {
+                "value": "9",
+                "label": "知识"
+              },
+              {
+                "value": "10",
+                "label": "科技"
+              },
+              {
+                "value": "11",
+                "label": "运动"
+              },
+              {
+                "value": "12",
+                "label": "汽车"
+              },
+              {
+                "value": "13",
+                "label": "生活"
+              },
+              {
+                "value": "14",
+                "label": "美食"
+              },
+              {
+                "value": "15",
+                "label": "动物圈"
+              },
+              {
+                "value": "16",
+                "label": "鬼畜"
+              },
+              {
+                "value": "17",
+                "label": "时尚"
+              },
+              {
+                "value": "18",
+                "label": "娱乐"
+              },
+              {
+                "value": "19",
+                "label": "影视"
+              },
+              {
+                "value": "23",
+                "label": "原创"
+              },
+              {
+                "value": "24",
+                "label": "新人"
               }
             ]
           },
-          "arc_type": {
-            "description": "投稿时间",
-            "default": "1",
-            "options": [
-              {
-                "value": "0",
-                "label": "全部投稿"
-              },
-              {
-                "value": "1",
-                "label": "近期投稿"
-              }
-            ]
-          },
-          "embed": "默认为开启内嵌视频, 任意值为关闭"
+          "embed": "默认为开启内嵌视频, 任意值为关闭",
+          "redirect1": "留空，用于兼容之前的路由",
+          "redirect2": "留空，用于兼容之前的路由"
         },
         "location": "ranking.ts"
       },
@@ -23525,6 +23584,69 @@
     "url": "dutdice.dlut.edu.cn",
     "lang": "zh-CN"
   },
+  "dw": {
+    "routes": {
+      "/news/:lang?/:id?": {
+        "path": "/news/:lang?/:id?",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/dw/news",
+        "parameters": {
+          "lang": "Language, see below, default to en",
+          "id": "Category ID, see below, default to the id of the Top Stories Page of the language chosen"
+        },
+        "features": {
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "requireConfig": false
+        },
+        "name": "News",
+        "maintainers": [
+          "quiniapiezoelectricity"
+        ],
+        "description": "\n:::tip\nParameters can be obtained from the official website, for instance:\nFor the site https://www.dw.com/de/deutschland/s-12321 the language code would be `de` and the category ID would be `s-1432`.\n:::\n",
+        "radar": [
+          {
+            "source": [
+              "www.dw.com/:lang/:name/:id"
+            ],
+            "target": "/news/:lang/:id"
+          }
+        ],
+        "location": "news.ts"
+      },
+      "/rss/:channel?": {
+        "path": "/rss/:channel?",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/dw/rss/rss-en-all",
+        "parameters": {
+          "category": "RSS Feed Channel, see below, `rss-en-all` by default"
+        },
+        "features": {
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "requireConfig": false
+        },
+        "name": "RSS",
+        "maintainers": [
+          "quiniapiezoelectricity"
+        ],
+        "description": "\nFor a full list of RSS Feed Channels in English, please refer to [DW RSS Feeds](https://corporate.dw.com/en/rss-feeds/a-68693346).\nRSS Feed Channels in other languages are also available, for example: `rss-chi-all` renders the RSS feed in Chinese and `rss-de-all` for the RSS Feed in German \n",
+        "location": "rss.ts"
+      }
+    },
+    "name": "DW Deutsche Welle",
+    "url": "dw.com"
+  },
   "dx2025": {
     "routes": {
       "/:type?/:category?": {
@@ -27567,6 +27689,458 @@
     "name": "福利吧",
     "url": "fuliba2023.net",
     "lang": "zh-CN"
+  },
+  "furaffinity": {
+    "routes": {
+      "/art/:folder/:username/:mode?": {
+        "path": "/art/:folder/:username/:mode?",
+        "name": "Gallery",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/art/gallery/fender/nsfw",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage",
+          "folder": "Image folders, options are gallery, scraps, favorites",
+          "mode": "R18 content toggle, default value is sfw, options are sfw, nsfw"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/gallery/:username"
+            ],
+            "target": "/gallery/:username"
+          },
+          {
+            "source": [
+              "furaffinity.net/scraps/:username"
+            ],
+            "target": "/scraps/:username"
+          },
+          {
+            "source": [
+              "furaffinity.net/favorites/:username"
+            ],
+            "target": "/favorites/:username"
+          }
+        ],
+        "location": "art.ts"
+      },
+      "/browse/:mode?": {
+        "path": "/browse/:mode?",
+        "name": "Browse",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/browse/nsfw",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "mode": "R18 content toggle, default value is sfw, options are sfw, nsfw"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net"
+            ],
+            "target": "/browse"
+          }
+        ],
+        "location": "browse.ts"
+      },
+      "/commissions/:username": {
+        "path": "/commissions/:username",
+        "name": "Commissions",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/commissions/fender",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/commissions/:username"
+            ],
+            "target": "/commissions/:username"
+          }
+        ],
+        "location": "commissions.ts"
+      },
+      "/home/:category/:mode?": {
+        "path": "/home/:category/:mode?",
+        "name": "Home",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/home/nsfw",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "category": "Category, default value is artwork, options are artwork, writing, music, crafts",
+          "mode": "R18 content toggle, default value is sfw, options are sfw, nsfw"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net"
+            ],
+            "target": "/"
+          }
+        ],
+        "location": "home.ts"
+      },
+      "/journal-comments/:id": {
+        "path": "/journal-comments/:id",
+        "name": "Journal Comments",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/journal-comments/10925112",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "id": "Journal ID"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/journal/:id"
+            ],
+            "target": "/journal-comments/:id"
+          }
+        ],
+        "location": "journal-comments.ts"
+      },
+      "/journals/:username": {
+        "path": "/journals/:username",
+        "name": "Journals",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/journals/fender",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/journals/:username"
+            ],
+            "target": "/journals/:username"
+          }
+        ],
+        "location": "journals.ts"
+      },
+      "/search/:query/:mode?/:routeParams?": {
+        "path": "/search/:query/:mode?/:routeParams?",
+        "name": "Search",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/search/protogen/nsfw",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "query": "Query value",
+          "mode": "R18 content toggle, default value is sfw, options are sfw, nsfw",
+          "routeParams": "Additional search parameters"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net"
+            ],
+            "target": "/search"
+          }
+        ],
+        "description": "Additional search parameters\n| Parameter       | Description          | Default   | Options                                                        |\n|-----------------|----------------------|-----------|----------------------------------------------------------------|\n| order_by        | Sort by              | relevancy | relevancy, date, popularity                                    |\n| order_direction | Sort order           | desc      | desc, asc                                                      |\n| range           | Date range           | all       | all, 1day, 3days, 7days, 30days, 90days, 1year, 3years, 5years |\n| pattern         | Query match pattern  | extended  | all, any, extended                                             |\n| type            | Category of artworks | all       | art, flash, photo, music, story, poetry                        |\n",
+        "location": "search.ts"
+      },
+      "/shouts/:username": {
+        "path": "/shouts/:username",
+        "name": "Shouts",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/shouts/fender",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/user/:username"
+            ],
+            "target": "/shouts/:username"
+          }
+        ],
+        "location": "shouts.ts"
+      },
+      "/status": {
+        "path": "/status",
+        "name": "Status",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/status",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net"
+            ],
+            "target": "/"
+          }
+        ],
+        "location": "status.ts"
+      },
+      "/submission-comments/:id": {
+        "path": "/submission-comments/:id",
+        "name": "Submission Comments",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/submission-comments/24259751",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "id": "Submission ID"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/view/:id"
+            ],
+            "target": "/submission-comments/:id"
+          }
+        ],
+        "location": "submission-comments.ts"
+      },
+      "/user/:username": {
+        "path": "/user/:username",
+        "name": "Userpage",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/user/fender/nsfw",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/user/:username"
+            ],
+            "target": "/user/:username"
+          }
+        ],
+        "location": "user.ts"
+      },
+      "/watchers/:username": {
+        "path": "/watchers/:username",
+        "name": "User's Watcher List",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/watchers/fender",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/watchlist/to/:username"
+            ],
+            "target": "/watchers/:username"
+          }
+        ],
+        "location": "watchers.ts"
+      },
+      "/watching/:username": {
+        "path": "/watching/:username",
+        "name": "User's Watching List",
+        "url": "furaffinity.net",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/furaffinity/watching/fender",
+        "maintainers": [
+          "TigerCubDen",
+          "SkyNetX007"
+        ],
+        "parameters": {
+          "username": "Username, can find in userpage"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "furaffinity.net/watchlist/by/:username"
+            ],
+            "target": "/watching/:username"
+          }
+        ],
+        "location": "watching.ts"
+      }
+    },
+    "name": "Furaffinity",
+    "url": "furaffinity.net",
+    "lang": "en"
   },
   "furstar": {
     "routes": {
@@ -38306,6 +38880,37 @@
         "description": "| 通知公告 | 热点新闻 |\n    | :------: | :------: |\n    |   tzgg   |   rdxw   |",
         "location": "job/list.ts"
       },
+      "/sec/:id": {
+        "path": "/sec/:id",
+        "categories": [
+          "university"
+        ],
+        "example": "/hrbeu/sec/xshd",
+        "parameters": {
+          "id": "栏目编号，由 `URL` 中获取。"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "sec.hrbeu.edu.cn/:id/list.htm"
+            ]
+          }
+        ],
+        "name": "船舶工程学院",
+        "maintainers": [
+          "Chi-hong22"
+        ],
+        "description": "| 学院要闻 | 学术活动 | 通知公告 | 学科方向 |\n| :------: | :------: |:------: | :------: |\n|   xyyw   |   xshd   |  229   |   xkfx   |",
+        "location": "sec/list.ts"
+      },
       "/uae/:id": {
         "path": "/uae/:id",
         "categories": [
@@ -42187,6 +42792,47 @@
     "url": "www.iresearch.com.cn",
     "lang": "zh-CN"
   },
+  "isct": {
+    "routes": {
+      "/news/:lang": {
+        "path": "/news/:lang",
+        "categories": [
+          "university"
+        ],
+        "example": "/isct/news/ja",
+        "parameters": {
+          "lang": "language, could be ja or en"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.isct.ac.jp/:lang/news"
+            ],
+            "target": "/news/:lang"
+          }
+        ],
+        "name": "News",
+        "maintainers": [
+          "catyyy"
+        ],
+        "location": "news.ts"
+      }
+    },
+    "name": "Institute of Science Tokyo",
+    "url": "isct.ac.jp",
+    "lang": "ja",
+    "ja": {
+      "name": "東京科学大学"
+    }
+  },
   "issuehunt": {
     "routes": {
       "/funded/:username/:repo": {
@@ -43303,6 +43949,81 @@
     "name": "Javtiful",
     "url": "javtiful.com",
     "lang": "en"
+  },
+  "javtrailers": {
+    "routes": {
+      "/casts/:cast": {
+        "path": "/casts/:cast",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/javtrailers/casts/hibiki-otsuki",
+        "parameters": {
+          "cast": "Cast name, can be found in the URL of the cast page"
+        },
+        "radar": [
+          {
+            "source": [
+              "javtrailers.com/casts/:category"
+            ]
+          }
+        ],
+        "name": "Casts",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "javtrailers.com/casts",
+        "location": "casts.ts"
+      },
+      "/categories/:category": {
+        "path": "/categories/:category",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/javtrailers/categories/50001755",
+        "parameters": {
+          "category": "Category name, can be found in the URL of the category page"
+        },
+        "radar": [
+          {
+            "source": [
+              "javtrailers.com/categories/:category"
+            ]
+          }
+        ],
+        "name": "Categories",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "javtrailers.com/categories",
+        "location": "categories.ts"
+      },
+      "/studios/:studio": {
+        "path": "/studios/:studio",
+        "categories": [
+          "multimedia"
+        ],
+        "example": "/javtrailers/studios/s1-no-1-style",
+        "parameters": {
+          "studio": "Studio name, can be found in the URL of the studio page"
+        },
+        "radar": [
+          {
+            "source": [
+              "javtrailers.com/studios/:category"
+            ]
+          }
+        ],
+        "name": "Studios",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "location": "studios.ts"
+      }
+    },
+    "name": "JavTrailers",
+    "url": "javtrailers.com",
+    "lang": "ja"
   },
   "jd": {
     "routes": {
@@ -47514,6 +48235,36 @@
     "name": "LogoNews 标志情报局",
     "url": "logonews.cn",
     "lang": "zh-CN"
+  },
+  "logrocket": {
+    "routes": {
+      "/:type": {
+        "path": "/:type",
+        "categories": [
+          "blog"
+        ],
+        "example": "/logrocket/dev",
+        "parameters": {
+          "type": "dev | product-management | ux-design"
+        },
+        "radar": [
+          {
+            "source": [
+              "blog.logrocket.com"
+            ]
+          }
+        ],
+        "name": "blog.logrocket",
+        "maintainers": [
+          "findwei"
+        ],
+        "url": "blog.logrocket.com/",
+        "location": "index.ts"
+      }
+    },
+    "name": "logrocket blog",
+    "url": "blog.logrocket.com",
+    "lang": "en"
   },
   "loltw": {
     "routes": {
@@ -53681,9 +54432,10 @@
           {
             "source": [
               "natgeomedia.com/:cat/:type",
+              "natgeomedia.com/:cat/",
               "natgeomedia.com/"
             ],
-            "target": "/:cat/:type"
+            "target": "/:cat/:type?"
           }
         ],
         "name": "分类",
@@ -61655,6 +62407,43 @@
         "description": ":::warning\n  Only for self-hosted\n  :::",
         "location": "illustfollow.ts"
       },
+      "/novel/series/:id": {
+        "path": "/novel/series/:id",
+        "categories": [
+          "social-media"
+        ],
+        "example": "/pixiv/novel/series/11586857",
+        "parameters": {
+          "id": "Series id, can be found in URL"
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "PIXIV_REFRESHTOKEN",
+              "optional": true,
+              "description": "\nrefresh_token after Pixiv login, required for accessing R18 novels\nPixiv 登錄後的 refresh_token，用於獲取 R18 小說\n[https://docs.rsshub.app/deploy/config#pixiv](https://docs.rsshub.app/deploy/config#pixiv)"
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Novel Series",
+        "maintainers": [
+          "SnowAgar25"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.pixiv.net/novel/series/:id"
+            ],
+            "target": "/novel/series/:id"
+          }
+        ],
+        "location": "novel-series.ts"
+      },
       "/user/novels/:id/:full_content?": {
         "path": "/user/novels/:id/:full_content?",
         "categories": [
@@ -61697,14 +62486,16 @@
           {
             "title": "User Novels (簡介 Basic info)",
             "source": [
-              "www.pixiv.net/users/:id/novels"
+              "www.pixiv.net/users/:id/novels",
+              "www.pixiv.net/users/:id"
             ],
             "target": "/user/novels/:id"
           },
           {
             "title": "User Novels (全文 Full text)",
             "source": [
-              "www.pixiv.net/users/:id/novels"
+              "www.pixiv.net/users/:id/novels",
+              "www.pixiv.net/users/:id"
             ],
             "target": "/user/novels/:id/true"
           }
@@ -64650,6 +65441,60 @@
     "url": "qqorw.cn",
     "lang": "zh-CN"
   },
+  "qstheory": {
+    "routes": {
+      "/:category?": {
+        "path": "/:category?",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/qstheory",
+        "parameters": {
+          "industry": "分类，见下表"
+        },
+        "radar": [
+          {
+            "source": [
+              "www.qstheory.cn/v9zhuanqu/:category/index.htm",
+              "www.qstheory.cn/qszq/:category/index.htm",
+              "www.qstheory.cn/:category/index.htm"
+            ]
+          }
+        ],
+        "name": "分类",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "description": "\n| 头条    | 网评 | 视频 | 原创   | 经济    | 政治     | 文化    | 社会    | 党建 | 科教    | 生态    | 国防    | 国际          | 图书  | 学习笔记 | 理论文选 |\n| ------- | ---- | ---- | ------ | ------- | -------- | ------- | ------- | ---- | ------- | ------- | ------- | ------------- | ----- | -------- | -------- |\n| toutiao | qswp | qssp | qslgxd | economy | politics | culture | society | cpc  | science | zoology | defense | international | books | xxbj     | llwx     |",
+        "location": "index.ts"
+      },
+      "/magazine/:magazine": {
+        "path": "/magazine/:magazine",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/qstheory/magazine/qs",
+        "parameters": {
+          "magazine": "刊物，`qs` 为求是，`hqwglist` 为红旗文稿"
+        },
+        "radar": [
+          {
+            "source": [
+              "www.qstheory.cn/:magazine/mulu.htm"
+            ]
+          }
+        ],
+        "name": "在线读刊",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "location": "magazine.ts"
+      }
+    },
+    "name": "求是网",
+    "url": "www.qstheory.cn",
+    "lang": "zh-CN"
+  },
   "questmobile": {
     "routes": {
       "/report/:industry?/:label?": {
@@ -67261,6 +68106,36 @@
     },
     "name": "四川广播电视台",
     "url": "sctv.com",
+    "lang": "zh-CN"
+  },
+  "scu": {
+    "routes": {
+      "/scupi": {
+        "path": "/scupi",
+        "categories": [
+          "university"
+        ],
+        "example": "/scu/scupi",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "匹兹堡学院通知",
+        "maintainers": [
+          "sitdownkevin"
+        ],
+        "url": "scupi.scu.edu.cn/activities/notice",
+        "description": "",
+        "location": "scupi/notice.ts"
+      }
+    },
+    "name": "四川大学",
+    "url": "www.scu.edu.cn",
     "lang": "zh-CN"
   },
   "scut": {
@@ -78151,13 +79026,15 @@
         "url": "yz.tongji.edu.cn/zsxw/ggtz.htm",
         "location": "yjs.ts"
       },
-      "/sem": {
-        "path": "/sem",
+      "/sem/:type?": {
+        "path": "/sem/:type?",
         "categories": [
           "university"
         ],
-        "example": "/tongji/sem",
-        "parameters": {},
+        "example": "/tongji/sem/notice",
+        "parameters": {
+          "type": "通知类型，默认为 `notice`"
+        },
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
@@ -78170,8 +79047,8 @@
         "maintainers": [
           "sitdownkevin"
         ],
-        "url": "sem.tongji.edu.cn/semch/category/frontpage/notice",
-        "description": "",
+        "url": "sem.tongji.edu.cn/semch",
+        "description": "| 学院通知 | 招生通知 | 学术观点 | 新闻 | 活动 | 视点 | 教师与行政人员招聘 |\n| -------- | -------------- | ------------------ | ---- | ---------- | --------- | ------------------ |\n| notice   | enrollment     | academic-paper     | news | events     | focus     | collegerecruitment |\n",
         "location": "sem/notice.ts"
       },
       "/sse/:type?": {
@@ -81548,6 +82425,34 @@
     "url": "verfgh.baden-wuerttemberg.de",
     "lang": "de"
   },
+  "vertikal": {
+    "routes": {
+      "/latest": {
+        "path": "/latest",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/vertikal/latest",
+        "radar": [
+          {
+            "source": [
+              "vertikal.net/en/news",
+              "vertikal.net"
+            ]
+          }
+        ],
+        "name": "News Archive",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "vertikal.net/en/news",
+        "location": "latest.ts"
+      }
+    },
+    "name": "Vertikal.net",
+    "url": "vertikal.net",
+    "lang": "en"
+  },
   "vice": {
     "routes": {
       "/topic/:topic/:language?": {
@@ -82537,10 +83442,41 @@
   },
   "wallstreetcn": {
     "routes": {
+      "/calendar/:section?": {
+        "path": "/calendar/:section?",
+        "categories": [
+          "finance"
+        ],
+        "example": "/wallstreetcn/calendar",
+        "parameters": {
+          "section": "`macrodatas` 或 `report`，默认为 `macrodatas`"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "wallstreetcn.com/calendar"
+            ]
+          }
+        ],
+        "name": "财经日历",
+        "maintainers": [
+          "TonyRL"
+        ],
+        "url": "wallstreetcn.com/calendar",
+        "location": "calendar.ts"
+      },
       "/hot/:period?": {
         "path": "/hot/:period?",
         "categories": [
-          "traditional-media"
+          "finance"
         ],
         "example": "/wallstreetcn/hot",
         "parameters": {
@@ -82571,7 +83507,7 @@
       "/live/:category?/:score?": {
         "path": "/live/:category?/:score?",
         "categories": [
-          "traditional-media"
+          "finance"
         ],
         "example": "/wallstreetcn/live",
         "parameters": {
@@ -82603,10 +83539,11 @@
         "location": "live.ts"
       },
       "/news/:category?": {
-        "path": [
-          "/news/:category?",
-          "/:category?"
+        "path": "/news/:category?",
+        "categories": [
+          "finance"
         ],
+        "example": "/wallstreetcn/news",
         "radar": [
           {
             "source": [
@@ -82615,27 +83552,7 @@
             ]
           }
         ],
-        "name": "Unknown",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "description": "| id           | 分类 |\n  | ------------ | ---- |\n  | global       | 最新 |\n  | shares       | 股市 |\n  | bonds        | 债市 |\n  | commodities  | 商品 |\n  | forex        | 外汇 |\n  | enterprise   | 公司 |\n  | asset-manage | 资管 |\n  | tmt          | 科技 |\n  | estate       | 地产 |\n  | car          | 汽车 |\n  | medicine     | 医药 |",
-        "location": "news.ts"
-      },
-      "/:category?": {
-        "path": [
-          "/news/:category?",
-          "/:category?"
-        ],
-        "radar": [
-          {
-            "source": [
-              "wallstreetcn.com/news/:category",
-              "wallstreetcn.com/"
-            ]
-          }
-        ],
-        "name": "Unknown",
+        "name": "资讯",
         "maintainers": [
           "nczitzk"
         ],
