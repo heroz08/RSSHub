@@ -3,7 +3,7 @@ import { load } from 'cheerio';
 import iconv from 'iconv-lite';
 import got from '@/utils/got';
 
-const baseURL = 'https://www.dytt89.com/i/';
+const baseURL = 'https://www.dytt8899.com/i/';
 
 export const route: Route = {
     path: '/tv/:id',
